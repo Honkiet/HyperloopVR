@@ -10,15 +10,22 @@ public class HandPresence : MonoBehaviour
     public List<GameObject> controllerPrefabs;
     public GameObject handModelPrefab;
     
-    private InputDevice targetDevice;
+    public InputDevice targetDevice;
     private GameObject spawnedController;
     private GameObject spawnedHandModel;
     private Animator handAnimator;
+
+    //Phone variables
+    Phone phone;
+    bool inputValueChanged;
+    int singlePressCount;
 
     // Start is called before the first frame update
     void Start()
     {
         TryInitialize();
+
+        phone = GameObject.Find("Phone").GetComponent<Phone>();
     }
 
     void TryInitialize()
@@ -75,6 +82,19 @@ public class HandPresence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool phonePress));
+
+        if(phonePress != inputValueChanged)
+        {
+            inputValueChanged = phonePress;
+            singlePressCount++;
+
+            if(singlePressCount % 2 == 1) //Releasing the button is also counted as a bool change, so if the bool change count reaches an uneven number, it means the button is pressed again instead of released
+            {
+                phone.SpawnPhone();
+            }
+        }
+
         if(!targetDevice.isValid)
         {
             TryInitialize();
@@ -93,5 +113,10 @@ public class HandPresence : MonoBehaviour
                 UpdateHandAnimation();
             }
         }
+    }
+
+    public InputDevice ReturnInputDevice()
+    {
+        return targetDevice;
     }
 }
