@@ -12,6 +12,10 @@ public class Phone : MonoBehaviour
     [SerializeField] GameObject firstApp;
     [SerializeField] GameObject secondApp;
 
+    public delegate void PhoneScanFunction();
+    public event PhoneScanFunction scanFunction;
+    int framePressed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +42,18 @@ public class Phone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Scanner")
+        if(other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<CustomTeleport>().TeleportPlayer(new Vector3(5.4f, 1.6f, 0.75f), new Vector3(0, 0, 0), 2f);
+            framePressed = Time.frameCount;
+            scanFunction.Invoke();
+            StartCoroutine(ResetScanFunction());
         }
+    }
+
+    IEnumerator ResetScanFunction()
+    {
+        yield return new WaitForEndOfFrame();
+        scanFunction = null;
     }
 
     public void EnableFirstApp()

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomTeleport : MonoBehaviour
 {
+    //Teleport the player from a script instead of a button press.
+
     public void TeleportPlayer(Vector3 location)
     {
         transform.position = location;
