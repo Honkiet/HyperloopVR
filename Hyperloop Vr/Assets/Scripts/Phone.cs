@@ -16,28 +16,38 @@ public class Phone : MonoBehaviour
     public event PhoneScanFunction scanFunction;
     int framePressed;
 
+    [SerializeField] CustomTeleport teleporterScript;
+    [SerializeField] Vector3 teleportPosition;
+
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = new Vector3(0, -10f, 0);
+        //gameObject.transform.position = new Vector3(0, -10f, 0);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void SpawnPhone()
-    {
-        spawn = !spawn;
+    //public void SpawnPhone()
+    //{
+    //    spawn = !spawn;
 
-        if (spawn)
-        {
-            gameObject.transform.position = phoneLocation.position;
-            gameObject.transform.LookAt(player.transform);
-            gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
-        else
-        {
-            gameObject.transform.position = new Vector3(0, -100f, 0);
-        }
+    //    if (spawn)
+    //    {
+    //        gameObject.transform.position = phoneLocation.position;
+    //        gameObject.transform.LookAt(player.transform);
+    //        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+    //    }
+    //    else
+    //    {
+    //        gameObject.transform.position = new Vector3(0, -100f, 0);
+    //    }
         
+    //}
+
+    public void SpawnInFrontOfPlayer()
+    {
+        gameObject.transform.position = phoneLocation.position;
+        gameObject.transform.LookAt(player.transform);
+        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +57,13 @@ public class Phone : MonoBehaviour
             framePressed = Time.frameCount;
             scanFunction.Invoke();
             StartCoroutine(ResetScanFunction());
+        }
+
+        if(other.name == "GateScanner" && framePressed != Time.frameCount)
+        {
+            framePressed = Time.frameCount;
+            teleporterScript.TeleportPlayer(teleportPosition);
+            gameObject.transform.position = new Vector3(0, -100f, 0);
         }
     }
 

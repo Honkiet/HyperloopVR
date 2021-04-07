@@ -82,18 +82,18 @@ public class HandPresence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool phonePress));
+        //if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool phonePress));
 
-        if(phonePress != inputValueChanged)
-        {
-            inputValueChanged = phonePress;
-            singlePressCount++;
+        //if(phonePress != inputValueChanged)
+        //{
+        //    inputValueChanged = phonePress;
+        //    singlePressCount++;
 
-            if(singlePressCount % 2 == 1) //Releasing the button is also counted as a bool change, so if the bool change count reaches an uneven number, it means the button is pressed again instead of released
-            {
-                phone.SpawnPhone();
-            }
-        }
+        //    if(singlePressCount % 2 == 1) //Releasing the button is also counted as a bool change, so if the bool change count reaches an uneven number, it means the button is pressed again instead of released
+        //    {
+        //        phone.SpawnPhone();
+        //    }
+        //}
 
         if(!targetDevice.isValid)
         {
