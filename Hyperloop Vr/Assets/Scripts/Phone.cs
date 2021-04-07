@@ -50,6 +50,13 @@ public class Phone : MonoBehaviour
         gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
+    public void SpawnAtLocation(Vector3 location)
+    {
+        gameObject.transform.position = location;
+        gameObject.transform.LookAt(player.transform);
+        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null)
