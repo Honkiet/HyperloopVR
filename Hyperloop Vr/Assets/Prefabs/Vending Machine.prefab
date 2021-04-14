@@ -90,8 +90,9 @@ GameObject:
   - component: {fileID: 2209964017485711935}
   - component: {fileID: 5216296943859874031}
   - component: {fileID: 5216296943859874025}
+  - component: {fileID: 701554546977079426}
   m_Layer: 0
-  m_Name: vending machine (4)
+  m_Name: Vending Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980152609231091173}
-  m_LocalRotation: {x: 0.97210246, y: 0.00017708912, z: 0.23455551, w: 0.0007339512}
+  m_LocalRotation: {x: 0.97210217, y: 0.00017313505, z: 0.23455656, w: 0.0007330185}
   m_LocalPosition: {x: -12.67, y: 0.56, z: 25.15}
   m_LocalScale: {x: 0.61757, y: 0.6175699, z: -0.61757004}
   m_Children:
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 1641387848961732041, guid: 2fa4e6baf46f8c949a395fd9714f4e53, type: 3}
-  spawnPlacement: {x: 55.191, y: -20.354, z: 26.029}
+  spawnPlacement: {x: 56.312, y: -20.354, z: 26.917}
 --- !u!114 &5216296943859874025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phone: {fileID: 0}
-  spawnLocation: {x: 55.287, y: -19.453, z: 25.904}
+  spawnLocation: {x: 56.263, y: -19.453, z: 26.68}
+--- !u!65 &701554546977079426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980152609231091173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.131646, z: 2.0681345}
+  m_Center: {x: 7.6731066e-10, y: 2.0088234, z: -0.0033302417}
 --- !u!1 &2105772992498102591
 GameObject:
   m_ObjectHideFlags: 0
