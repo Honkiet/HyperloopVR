@@ -24,12 +24,12 @@ public class HandPresence : MonoBehaviour
     void Start()
     {
         TryInitialize();
-
-        phone = GameObject.Find("Phone").GetComponent<Phone>();
     }
 
     void TryInitialize()
     {
+        phone = GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>();
+
         List<InputDevice> devices = new List<InputDevice>();
 
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
