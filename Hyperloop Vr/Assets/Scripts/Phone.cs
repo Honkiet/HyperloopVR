@@ -9,8 +9,9 @@ public class Phone : MonoBehaviour
     GameObject player;
     bool spawn;
 
-    [SerializeField] GameObject firstApp;
-    [SerializeField] GameObject secondApp;
+    [SerializeField] GameObject paymentApp;
+    [SerializeField] GameObject ticketApp;
+    [SerializeField] GameObject mainMenu;
 
     public delegate void PhoneScanFunction();
     public event PhoneScanFunction scanFunction;
@@ -80,13 +81,34 @@ public class Phone : MonoBehaviour
         scanFunction = null;
     }
 
-    public void EnableFirstApp()
+    public void EnableApp(string loadApp)
     {
-        firstApp.SetActive(true);
+        Transform canvasTransform = gameObject.transform.GetChild(0);
+
+        for (int i = 0; i < canvasTransform.transform.childCount; i++)
+        {
+            canvasTransform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        if (loadApp.ToLower() == "payment")
+        {
+            paymentApp.SetActive(true);
+        }
+        else if (loadApp.ToLower() == "ticket")
+        {
+            ticketApp.SetActive(true);
+        }
     }
 
-    public void EnableSecondApp()
+    public void BackToPhoneMenu()
     {
-        secondApp.SetActive(true);
+        Transform canvasTransform = gameObject.transform.GetChild(0);
+
+        for (int i = 0; i < canvasTransform.transform.childCount; i++)
+        {
+            canvasTransform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        mainMenu.SetActive(true);
     }
 }
