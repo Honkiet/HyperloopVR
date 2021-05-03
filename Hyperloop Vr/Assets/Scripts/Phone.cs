@@ -20,6 +20,9 @@ public class Phone : MonoBehaviour
     [SerializeField] CustomTeleport teleporterScript;
     [SerializeField] Vector3 teleportPosition;
 
+    public enum PhoneScanState { none, ticket, payment }
+    public PhoneScanState phoneScanState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +70,7 @@ public class Phone : MonoBehaviour
             StartCoroutine(ResetScanFunction());
         }
 
-        if(other.name == "GateScanner" && framePressed != Time.frameCount)
+        if(other.name == "GateScanner" && framePressed != Time.frameCount && phoneScanState == PhoneScanState.ticket)
         {
             framePressed = Time.frameCount;
             teleporterScript.TeleportPlayer(teleportPosition);
@@ -93,10 +96,12 @@ public class Phone : MonoBehaviour
         if (loadApp.ToLower() == "payment")
         {
             paymentApp.SetActive(true);
+            phoneScanState = PhoneScanState.payment;
         }
         else if (loadApp.ToLower() == "ticket")
         {
             ticketApp.SetActive(true);
+            phoneScanState = PhoneScanState.ticket;
         }
     }
 
@@ -110,5 +115,6 @@ public class Phone : MonoBehaviour
         }
 
         mainMenu.SetActive(true);
+        phoneScanState = PhoneScanState.none;
     }
 }
