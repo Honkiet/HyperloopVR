@@ -12,11 +12,7 @@ public class MapMovement : MonoBehaviour
     {
         startingPosition = transform.position;
         animator = GetComponent<Animator>();
-
-        if(FindObjectOfType<EnterHyperloop>() != null)
-        {
-            FindObjectOfType<EnterHyperloop>().startMap += StartMovement;
-        }
+        StartMovement();
     }
 
     public void StartMovement()

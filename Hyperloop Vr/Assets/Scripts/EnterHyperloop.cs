@@ -7,9 +7,6 @@ public class EnterHyperloop : MonoBehaviour
     [SerializeField] GameObject doorToOpen;
     [SerializeField] Vector3 teleportDestination;
     [SerializeField] Vector3 teleportRotation;
-
-    public delegate void StartMapMovement();
-    public StartMapMovement startMap;
     int frameEntered;
 
     private void Update()
@@ -26,7 +23,6 @@ public class EnterHyperloop : MonoBehaviour
         {
             doorToOpen.GetComponent<Animator>().Play("HyperloopDoorOpen");
             GameObject.FindGameObjectWithTag("Player").GetComponent<CustomTeleport>().TeleportPlayer(teleportDestination, teleportRotation, 2f);
-            startMap.Invoke();
         }
     }
 }

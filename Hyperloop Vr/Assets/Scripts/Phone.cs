@@ -63,7 +63,7 @@ public class Phone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null && phoneScanState == PhoneScanState.payment)
+        if(other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null)
         {
             framePressed = Time.frameCount;
             scanFunction.Invoke();
