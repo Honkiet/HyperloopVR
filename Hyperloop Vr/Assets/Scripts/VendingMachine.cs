@@ -24,11 +24,8 @@ public class VendingMachine : MonoBehaviour
 
     public void Pay()
     {
-        if(GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().phoneScanState == Phone.PhoneScanState.payment)
-        {
-            Instantiate(selectedItem, spawnPlacement, Quaternion.identity);
+        Instantiate(selectedItem, spawnPlacement, Quaternion.identity);
 
-            needToPay = false;
-        }
+        needToPay = false;
     }
 }

@@ -20,7 +20,7 @@ public class TabletMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        menuScreens[2].GetComponent<MapMovement>().ShowMap(true);
     }
 
     // Update is called once per frame
@@ -72,6 +72,7 @@ public class TabletMenu : MonoBehaviour
                     screenAnimator.Play("AppMenu1");
                     appInFront = FrontApp.travel;
                     menuItems[0].GetComponent<Collider>().enabled = false;
+                    menuItems[1].GetComponent<Collider>().enabled = false;
                     menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[1].GetComponent<Collider>())); //Travel
                 }
@@ -81,12 +82,14 @@ public class TabletMenu : MonoBehaviour
                     appInFront = FrontApp.placeHolder;
                     menuItems[0].GetComponent<Collider>().enabled = false;
                     menuItems[1].GetComponent<Collider>().enabled = false;
+                    menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[2].GetComponent<Collider>())); //PlaceHolder
                 }
                 else if (appInFront == FrontApp.placeHolder)
                 {
                     screenAnimator.Play("AppMenu3");
                     appInFront = FrontApp.entertainment;
+                    menuItems[0].GetComponent<Collider>().enabled = false;
                     menuItems[1].GetComponent<Collider>().enabled = false;
                     menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[0].GetComponent<Collider>())); //Entertainment
@@ -100,12 +103,14 @@ public class TabletMenu : MonoBehaviour
                     appInFront = FrontApp.placeHolder;
                     menuItems[0].GetComponent<Collider>().enabled = false;
                     menuItems[1].GetComponent<Collider>().enabled = false;
+                    menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[2].GetComponent<Collider>())); //PlaceHolder
                 }
                 else if (appInFront == FrontApp.travel)
                 {
                     screenAnimator.Play("AppMenu4");
                     appInFront = FrontApp.entertainment;
+                    menuItems[0].GetComponent<Collider>().enabled = false;
                     menuItems[1].GetComponent<Collider>().enabled = false;
                     menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[0].GetComponent<Collider>())); //Entertainment
@@ -115,20 +120,21 @@ public class TabletMenu : MonoBehaviour
                     screenAnimator.Play("AppMenu5");
                     appInFront = FrontApp.travel;
                     menuItems[0].GetComponent<Collider>().enabled = false;
+                    menuItems[1].GetComponent<Collider>().enabled = false;
                     menuItems[2].GetComponent<Collider>().enabled = false;
                     StartCoroutine(DelayedTriggerEnable(menuItems[1].GetComponent<Collider>())); //Travel
                 }
             }
 
-            IEnumerator DelayedTriggerEnable(Collider colliderToEnable)
-            {
-                yield return new WaitForSeconds(1f);
-                colliderToEnable.enabled = true;
-            }
-
             framePressed = Time.frameCount;
         }
-        
+
+        IEnumerator DelayedTriggerEnable(Collider colliderToEnable)
+        {
+            yield return new WaitForSeconds(1f);
+            colliderToEnable.enabled = true;
+        }
+
 
 
         //if (direction.ToLower() == "left")
@@ -187,19 +193,22 @@ public class TabletMenu : MonoBehaviour
     {
         if(appInFront == FrontApp.entertainment)
         {
+            Debug.Log("Option1");
             menuScreens[3].SetActive(true); //Entertainment
             menuScreens[1].SetActive(false);
             currentScreen = menuScreens[3];
         }
-        else if(appInFront == FrontApp.entertainment)
+        else if(appInFront == FrontApp.travel)
         {
+            Debug.Log("Option2");
             menuScreens[2].SetActive(true); //Map
             menuScreens[1].SetActive(false);
             currentScreen = menuScreens[2];
         }
         else
         {
-            menuScreens[2].GetComponent<MapMovement>().ShowMap(true); //Map
+            Debug.Log("Option3");
+            menuScreens[2].SetActive(true); //Map
             menuScreens[1].SetActive(false);
             currentScreen = menuScreens[2];
         }
@@ -235,6 +244,8 @@ public class TabletMenu : MonoBehaviour
             currentScreen.SetActive(false);
         }
 
+        menuScreens[2].SetActive(false);
+        menuScreens[3].SetActive(false);
         menuScreens[1].SetActive(true);
         currentScreen = menuScreens[1];
     }
