@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbb074823441d04c82845918d348385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorToOpen: {fileID: 0}
+  doorToOpen: {fileID: 1929250235}
   teleportDestination: {x: 55, y: -20, z: 22}
   teleportRotation: {x: 0, y: 7, z: 0}
 --- !u!65 &87701093
@@ -7583,6 +7583,46 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a4e1e544abfaa94fa4ed7f72dc4a7bd, type: 2}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.059547
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7010573
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.701057
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.09229783
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.09229782
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.637016
+      objectReference: {fileID: 0}
+    - target: {fileID: -8392005264802450582, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -165.00002
+      objectReference: {fileID: 0}
     - target: {fileID: -7673886404300160364, guid: eb2fd40d49f7cd748b7121624eaf65c4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7606,7 +7646,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: eb2fd40d49f7cd748b7121624eaf65c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.561
+      value: 67.521
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eb2fd40d49f7cd748b7121624eaf65c4,
         type: 3}
@@ -7718,6 +7758,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 594930b4d2994b046a33dec0a437ff2f, type: 2}
+    - target: {fileID: 1711277887553122256, guid: eb2fd40d49f7cd748b7121624eaf65c4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b23489153901204d845174ca2932012, type: 2}
     - target: {fileID: 4063835366044962077, guid: eb2fd40d49f7cd748b7121624eaf65c4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -25466,6 +25511,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d53c57057fe393428f81b0fb0675d06, type: 3}
+--- !u!1 &1929250235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4588534439127209634, guid: 4d53c57057fe393428f81b0fb0675d06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929250234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1932857595 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199973836754003501, guid: 03363bf476696af44a6b5a5d1229f0a5,
@@ -39475,7 +39526,7 @@ Transform:
   - {fileID: 6349626411402169225}
   - {fileID: 6349626411177586734}
   m_Father: {fileID: 6386154795586134195}
-  m_RootOrder: 160
+  m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1385414330425027382
 Transform:
@@ -50214,8 +50265,8 @@ Transform:
   - {fileID: 8220890080946678721}
   - {fileID: 231709054503393506}
   - {fileID: 182131401}
-  - {fileID: 2090217287}
   - {fileID: 1375968598022518105}
+  - {fileID: 2090217287}
   - {fileID: 100964291}
   - {fileID: 739972037}
   - {fileID: 1545479082}
