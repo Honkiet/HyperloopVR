@@ -7,16 +7,29 @@ public class VendingMachine : MonoBehaviour
     bool needToPay;
     [SerializeField] GameObject[] items;
     GameObject selectedItem;
-    [SerializeField] Vector3 spawnPlacement;
+    Vector3 spawnPlacement;
+    AudioSource audioSource;
+    AudioSource spawnPlaceAudioSource;
+    [SerializeField] AudioClip[] dispenseSounds;
 
     //Add this to every selection:
     //GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().scanFunction += Pay;
 
-    public void SelectionOne()
+
+    private void Start()
     {
-        if (!needToPay)
+        audioSource = GetComponent<AudioSource>();
+        var spawnPlaceGameObject = transform.Find("SpawnPlace");
+        spawnPlacement = spawnPlaceGameObject.transform.position;
+        spawnPlaceAudioSource = spawnPlaceGameObject.GetComponent<AudioSource>();
+    }
+
+
+    public void ProcessSelection(GameObject selection)
+    {
+        if(!needToPay)
         {
-            selectedItem = items[0];
+            selectedItem = selection;
             GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().scanFunction += Pay;
             needToPay = true;
         }
@@ -24,8 +37,10 @@ public class VendingMachine : MonoBehaviour
 
     public void Pay()
     {
+        audioSource.Play();
         Instantiate(selectedItem, spawnPlacement, Quaternion.identity);
-
+        spawnPlaceAudioSource.clip = dispenseSounds[Random.Range(0, dispenseSounds.Length)];
+        spawnPlaceAudioSource.Play();
         needToPay = false;
     }
 }

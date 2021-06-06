@@ -23,11 +23,17 @@ public class Phone : MonoBehaviour
     public enum PhoneScanState { none, ticket, payment }
     public PhoneScanState phoneScanState;
 
+    [SerializeField] GameObject creakingSoundGameObject;
+    [SerializeField] Vector3 gateXY;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         //gameObject.transform.position = new Vector3(0, -10f, 0);
         player = GameObject.FindGameObjectWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
     }
 
     //public void SpawnPhone()
@@ -66,6 +72,7 @@ public class Phone : MonoBehaviour
         if(other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null && phoneScanState == PhoneScanState.payment)
         {
             framePressed = Time.frameCount;
+            audioSource.Play();
             scanFunction.Invoke();
             StartCoroutine(ResetScanFunction());
         }
@@ -73,6 +80,9 @@ public class Phone : MonoBehaviour
         if(other.name == "GateScanner" && framePressed != Time.frameCount && phoneScanState == PhoneScanState.ticket)
         {
             framePressed = Time.frameCount;
+            Vector3 correctSoundPosition = new Vector3(gateXY.x, gateXY.y, player.transform.position.z);
+            audioSource.Play();
+            creakingSoundGameObject.transform.position = correctSoundPosition;
             teleporterScript.TeleportPlayer(teleportPosition);
             gameObject.transform.position = new Vector3(0, -100f, 0);
         }
