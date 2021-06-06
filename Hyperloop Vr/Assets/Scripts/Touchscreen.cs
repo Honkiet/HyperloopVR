@@ -9,6 +9,23 @@ public class Touchscreen : MonoBehaviour
     bool hasPressed;
     int framePressed;
 
+    [SerializeField] bool shouldPlayBeepSound;
+    AudioSource audioSource;
+    
+
+    private void Start()
+    {
+        if (shouldPlayBeepSound)
+        {
+            audioSource = GetComponent<AudioSource>();
+
+            if(audioSource == null)
+            {
+                Debug.LogError("You selected " + gameObject.name + " to play a beep sound when pressed, but there is no AudioSource present. Make sure to add it!");
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("IndexFinger") && !hasPressed && framePressed != Time.frameCount)
@@ -16,6 +33,11 @@ public class Touchscreen : MonoBehaviour
             framePressed = Time.frameCount;
             functionToCall.Invoke();
             hasPressed = true;
+
+            if (shouldPlayBeepSound)
+            {
+                audioSource.Play();
+            }
         }
     }
 
