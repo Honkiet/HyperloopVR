@@ -31,6 +31,7 @@ public class VendingMachine : MonoBehaviour
         {
             selectedItem = selection;
             GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().scanFunction += Pay;
+            GameObject.FindGameObjectWithTag("CreditCard").GetComponent<CreditCard>().scanFunction += Pay;
             needToPay = true;
         }
     }
