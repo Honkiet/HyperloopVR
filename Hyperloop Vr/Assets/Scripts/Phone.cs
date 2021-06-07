@@ -50,7 +50,7 @@ public class Phone : MonoBehaviour
     //    {
     //        gameObject.transform.position = new Vector3(0, -100f, 0);
     //    }
-        
+
     //}
 
     public void SpawnInFrontOfPlayer()
