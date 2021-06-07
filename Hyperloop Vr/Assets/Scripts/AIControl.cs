@@ -19,7 +19,7 @@ public class AIControl : MonoBehaviour {
 		animator.SetTrigger("isWalking");
 		float speedMulti = Random.Range(0.5f, 1);
 		animator.SetFloat("speedMultiplier", speedMulti);
-		agent.speed *= speedMulti;
+		//agent.speed *= speedMulti;
 	}
 	
 	// Update is called once per frame
