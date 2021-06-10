@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 40, y: 40}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 75b1c7a48cde8f245b55754cf293bd06, type: 3}
+        m_Texture: {fileID: 2800000, guid: f7eae6390f390e948b200c2b8a152b99, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control:
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 484e4ac11a7c07a47ade9c857d1d980e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 89c931c0feb5fe847a3977ebfd72ad8e, type: 3}
         m_Scale: {x: 40, y: 40}
         m_Offset: {x: 0, y: 0}
     - _Mask0:
@@ -72,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: b95698132f2c48649bdfe0683b75359d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 69aa996b073821640a86eb33c42ab00f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal0:
@@ -92,7 +92,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 64e54d60a938e9a479de4c0652174f11, type: 3}
+        m_Texture: {fileID: 2800000, guid: a0fc09b14611d6d4bb92cb64ac172db7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -100,7 +100,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 3f6838756cc6b16438db725d31b57588, type: 3}
+        m_Texture: {fileID: 2800000, guid: 53f6b307242120a4f855e528a5d08e3f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Splat0:
@@ -168,7 +168,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _UseAoMap: 1
-    - _UseColorMap: 0
+    - _UseColorMap: 1
     - _UseEmissiveMap: 0
     - _UseMetallicMap: 1
     - _UseNormalMap: 1
@@ -183,7 +183,7 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _UvTiling: {r: 9.2, g: 10, b: 0, a: 0}
+    - _UvTiling: {r: 8.07, g: 16.51, b: 0, a: 0}
 --- !u!114 &5526130865240874422
 MonoBehaviour:
   m_ObjectHideFlags: 11
