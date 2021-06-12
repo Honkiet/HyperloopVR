@@ -5,7 +5,6 @@ using UnityEngine;
 public class VendingMachine : MonoBehaviour
 {
     bool needToPay;
-    [SerializeField] GameObject[] items;
     GameObject selectedItem;
     Vector3 spawnPlacement;
     AudioSource audioSource;
