@@ -35,6 +35,7 @@ public class CreditCard : MonoBehaviour
     {
         if (other.name == "Scanner" && framePressed != Time.frameCount && scanFunction != null)
         {
+            scanFunction.Invoke();
             framePressed = Time.frameCount;
             audioSource.Play();
             StartCoroutine(ResetScanFunction());

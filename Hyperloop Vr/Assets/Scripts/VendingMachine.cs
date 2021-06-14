@@ -13,6 +13,7 @@ public class VendingMachine : MonoBehaviour
 
     //Add this to every selection:
     //GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().scanFunction += Pay;
+    //GameObject.FindGameObjectWithTag("CreditCard").GetComponent<CreditCard>().scanFunction += Pay;
 
 
     private void Start()

@@ -17,24 +17,16 @@ public class TabletMenu : MonoBehaviour
     GameObject currentScreen;
     int framePressed;
 
+    [SerializeField] MapMovement moveTheMapBack;
+
+    [SerializeField] Sprite[] nederlandsSprites;
+    [SerializeField] Sprite[] deutschSprites;
+    [SerializeField] Image[] toChangeSprites;
+
     // Start is called before the first frame update
     void Start()
     {
-        menuScreens[2].GetComponent<MapMovement>().ShowMap(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            AppMenuMove("left");
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            AppMenuMove("right");
-        }
+        //menuScreens[2].GetComponent<MapMovement>().ShowMap(true);
     }
 
     public void UpdateLanguageMenu(string language)
@@ -50,15 +42,33 @@ public class TabletMenu : MonoBehaviour
             {
                 transform.Find("Language Menu").transform.GetChild(0).GetComponent<Image>().sprite = languageMenuSprites[1];
                 StartCoroutine(WaitToTransition());
+                UpdateLanguageSpritesToNederlands();
             }
             else if (language.ToLower() == "deutsch")
             {
                 transform.Find("Language Menu").transform.GetChild(0).GetComponent<Image>().sprite = languageMenuSprites[2];
                 StartCoroutine(WaitToTransition());
+                UpdateLanguageSpritesToDeutsch();
             }
         }
 
         framePressed = Time.frameCount;
+    }
+
+    void UpdateLanguageSpritesToDeutsch()
+    {
+        toChangeSprites[0].sprite = deutschSprites[0];
+        toChangeSprites[1].sprite = deutschSprites[1];
+        toChangeSprites[2].sprite = deutschSprites[1];
+        toChangeSprites[3].sprite = deutschSprites[2];
+    }
+
+    void UpdateLanguageSpritesToNederlands()
+    {
+        toChangeSprites[0].sprite = nederlandsSprites[0];
+        toChangeSprites[1].sprite = nederlandsSprites[1];
+        toChangeSprites[2].sprite = nederlandsSprites[1];
+        toChangeSprites[3].sprite = nederlandsSprites[2];
     }
 
     public void AppMenuMove(string direction)
@@ -204,6 +214,7 @@ public class TabletMenu : MonoBehaviour
             menuScreens[2].SetActive(true); //Map
             menuScreens[1].SetActive(false);
             currentScreen = menuScreens[2];
+            moveTheMapBack.ShowMap(true);
         }
         else
         {
@@ -211,6 +222,7 @@ public class TabletMenu : MonoBehaviour
             menuScreens[2].SetActive(true); //Map
             menuScreens[1].SetActive(false);
             currentScreen = menuScreens[2];
+            moveTheMapBack.ShowMap(true);
         }
 
         //if (appMenuState % 3 == 0)
@@ -244,7 +256,7 @@ public class TabletMenu : MonoBehaviour
             currentScreen.SetActive(false);
         }
 
-        menuScreens[2].SetActive(false);
+        //menuScreens[2].SetActive(false);
         menuScreens[3].SetActive(false);
         menuScreens[1].SetActive(true);
         currentScreen = menuScreens[1];
