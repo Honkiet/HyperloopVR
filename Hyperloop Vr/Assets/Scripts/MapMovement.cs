@@ -5,23 +5,31 @@ using UnityEngine;
 public class MapMovement : MonoBehaviour
 {
     Animator animator;
+    Animator parentAnimator;
     Vector3 startingPosition;
+    Transform parentPosition;
 
     // Start is called before the first frame update
     void Awake()
     {
-        startingPosition = transform.position;
+        parentPosition = transform.parent;
+        startingPosition = parentPosition.position;
         animator = GetComponent<Animator>();
+        parentAnimator = parentPosition.GetComponent<Animator>();
         
         if(FindObjectOfType<EnterHyperloop>() != null)
         {
             FindObjectOfType<EnterHyperloop>().startMap += StartMovement;
         }
+
+        //Test
+        animator.Play("MapMovement");
+        ShowMap(false);
+
     }
 
     public void StartMovement()
     {
-        gameObject.SetActive(true);
         animator.Play("MapMovement");
         ShowMap(false);
     }
@@ -30,11 +38,13 @@ public class MapMovement : MonoBehaviour
     {
         if (show)
         {
-            transform.position = startingPosition;
+            //parentPosition.position = startingPosition;
+            parentAnimator.Play("Quickfix Back");
         }
         else
         {
-            transform.position = startingPosition - new Vector3(0, 1000f, 0);
+            parentAnimator.Play("Quickfix");
+            //parentPosition.GetComponent<RectTransform>().position = startingPosition - new Vector3(0, 1000f, 0);
         }
     }
 }
