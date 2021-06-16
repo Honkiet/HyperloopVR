@@ -20,6 +20,9 @@ public class HandPresence : MonoBehaviour
     bool inputValueChanged;
     int singlePressCount;
 
+    //Movement variables
+    int changeMovement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +98,7 @@ public class HandPresence : MonoBehaviour
         //    }
         //}
 
-        if(!targetDevice.isValid)
+        if (!targetDevice.isValid)
         {
             TryInitialize();
         }

@@ -31,7 +31,7 @@ public class EnterHyperloop : MonoBehaviour
 
     IEnumerator SwitchSounds()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         SoundCollection.transform.Find("Outside Hyperloop").gameObject.SetActive(false);
         var insideSoundsToStart = SoundCollection.transform.Find("Inside Hyperloop").transform.Find("Play When Entering");
 
@@ -39,5 +39,7 @@ public class EnterHyperloop : MonoBehaviour
         {
             insideSoundsToStart.transform.GetChild(i).GetComponent<AudioSource>().Play();
         }
+
+        StartCoroutine(insideSoundsToStart.GetChild(insideSoundsToStart.childCount - 1).GetComponent<announcerInside>().LoopLines());
     }
 }
