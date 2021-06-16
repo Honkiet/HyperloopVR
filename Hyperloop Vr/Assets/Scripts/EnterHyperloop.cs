@@ -21,9 +21,9 @@ public class EnterHyperloop : MonoBehaviour
     {
         if(frameEntered != Time.frameCount)
         {
-            doorToOpen.GetComponent<Animator>().Play("NewDoorAnimatino");
+            doorToOpen.GetComponent<Animator>().Play("nyperloopDoorOpen");
             doorToOpen.GetComponent<AudioSource>().Play();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<CustomTeleport>().TeleportPlayer(teleportDestination, teleportRotation, 2f);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CustomTeleport>().TeleportPlayer(teleportDestination, teleportRotation, 3.5f);
             StartCoroutine(SwitchSounds());
             startMap.Invoke();
         }
