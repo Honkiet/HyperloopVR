@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VendingMachine : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class VendingMachine : MonoBehaviour
     AudioSource audioSource;
     AudioSource spawnPlaceAudioSource;
     [SerializeField] AudioClip[] dispenseSounds;
+
+    [SerializeField] Image screenImage;
+    [SerializeField] Sprite noSelectionSprite;
 
     //Add this to every selection:
     //GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>().scanFunction += Pay;
@@ -43,5 +47,6 @@ public class VendingMachine : MonoBehaviour
         spawnPlaceAudioSource.clip = dispenseSounds[Random.Range(0, dispenseSounds.Length)];
         spawnPlaceAudioSource.Play();
         needToPay = false;
+        screenImage.sprite = noSelectionSprite;
     }
 }

@@ -21,11 +21,6 @@ public class MapMovement : MonoBehaviour
         {
             FindObjectOfType<EnterHyperloop>().startMap += StartMovement;
         }
-
-        //Test
-        animator.Play("MapMovement");
-        ShowMap(false);
-
     }
 
     public void StartMovement()

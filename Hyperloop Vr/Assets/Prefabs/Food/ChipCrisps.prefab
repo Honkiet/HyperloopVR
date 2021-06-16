@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6122087670659464663}
   - component: {fileID: 4732670969377940}
   - component: {fileID: 5645303922835575509}
+  - component: {fileID: 8666885628202207781}
   m_Layer: 8
   m_Name: ChipCrisps
   m_TagString: Food
@@ -171,3 +172,17 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+--- !u!64 &8666885628202207781
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533464067234498827}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5236419463216292216, guid: 2324dd04081ac624e9dab668a4e0a179, type: 3}
