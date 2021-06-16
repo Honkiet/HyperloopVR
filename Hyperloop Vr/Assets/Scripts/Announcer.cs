@@ -6,8 +6,7 @@ public class Announcer : MonoBehaviour
 {
     AudioSource audioSource;
     [SerializeField] AudioClip announcerJingle;
-    [SerializeField] AudioClip departureLine;
-    [SerializeField] AudioClip arrivalLine;
+    [SerializeField] AudioClip[] arrivalLines;
 
 
     // Start is called before the first frame update
@@ -19,21 +18,17 @@ public class Announcer : MonoBehaviour
 
     IEnumerator LoopLines()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(10f);
-            audioSource.clip = announcerJingle;
-            audioSource.Play();
-            yield return new WaitForSeconds(3f);
-            audioSource.clip = arrivalLine;
-            audioSource.Play();
-
-            yield return new WaitForSeconds(90f);
-            audioSource.clip = announcerJingle;
-            audioSource.Play();
-            yield return new WaitForSeconds(3f);
-            audioSource.clip = arrivalLine;
-            audioSource.Play();
-        }
+        yield return new WaitForSeconds(20f);
+        audioSource.clip = announcerJingle;
+        audioSource.Play();
+        yield return new WaitForSeconds(3f);
+        audioSource.clip = arrivalLines[0];
+        audioSource.Play();
+        yield return new WaitForSeconds(11f);
+        audioSource.clip = arrivalLines[1];
+        audioSource.Play();
+        yield return new WaitForSeconds(10f);
+        audioSource.clip = arrivalLines[2];
+        audioSource.Play();
     }
 }
