@@ -57,14 +57,14 @@ public class Phone : MonoBehaviour
     {
         gameObject.transform.position = phoneLocation.position;
         gameObject.transform.LookAt(player.transform);
-        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 90f, 0);
     }
 
     public void SpawnAtLocation(Vector3 location)
     {
         gameObject.transform.position = location;
         gameObject.transform.LookAt(player.transform);
-        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 90f, 0);
     }
 
     private void OnTriggerEnter(Collider other)
